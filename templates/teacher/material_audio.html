@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+{% load crispy_forms_tags %}
+
+
+{% block title %}Material{% endblock %}
+
+{% block content %}
+
+    <br>
+    <br>
+    <h4> {{ material.name }}</h4>
+    <hr>
+    <br>
+    <audio controls>
+    <source src="{{ material.file.url }}" type="audio/mp3"></audio>
+    <br>
+    <hr>
+    <br>
+
+    <h3>Add new comment</h3>
+    <form method="POST" >
+        {% csrf_token %}
+        {{ form|crispy }}
+        <button type="submit" class="save btn btn-info">Send</button>
+    </form>
+
+    {% for comment in comments %}
+        <div class="comment">
+            <div class="date">{{ comment.date_created }}</div>
+            <strong>{{ comment.user }}</strong>
+            <p>{{ comment.message|linebreaks }}</p>
+        </div>
+    {% empty %}
+        <br>
+        <p>No comments here yet.</p>
+    {% endfor %}
+
+
+{% endblock %}

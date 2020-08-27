@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}Materials{% endblock %}
+
+{% block content %}
+    <h5>Your available materials:</h5>
+    {% for material in materials %}
+        <p><a href="{% url 'teacher/materials' topic.id %}">{{ material.name }}</a></p>
+    {% endfor %}
+    <p></p>
+    <p><a class="btn btn-primary" href="{% url 'add_material' %}" role="button">Add New Material</a></p>
+
+{% endblock %}

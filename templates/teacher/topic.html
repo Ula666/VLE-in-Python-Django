@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}Topic{% endblock %}
+
+{% block content %}
+
+    <br>
+    <br>
+    <h3>This is : {{ topic.name }} Topic.</h3>
+    <hr>
+    <br>
+    <h5>List of available materials for this topic:</h5>
+
+{% for material in materials %}
+        <ul>
+            <li><h5><a href="{% url 'teacher_material' topic.id material.id  %}" class="text-info"> {{ material.name }}</a></h5></li>
+        </ul>
+    {% endfor %}
+
+    <br>
+    <h5> Available Quizzes: </h5>
+
+    {% for quiz, counter in quizes_info %}
+        <ul>
+        <li><h5><a href="{% url 'quiz_details' quiz.id  %}" class="text-info"> {{ quiz.name }}</a>|
+            <a href="{% url 'quiz_results' quiz.id %}" class="text-info">{{ counter }}</a></h5></li>
+        </ul>
+    {% endfor %}
+
+     <p><a class="btn btn-info" href="{% url 'add_material' topic.id %}" role="button">Add new material</a></p>
+     <p><a class="btn btn-info" href="{% url 'add_quiz' topic.id %}" role="button">Add quiz</a></p>
+
+{% endblock %}

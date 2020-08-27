@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}Quiz results{% endblock %}
+
+{% block content %}
+    <h4> Quiz  results for: {{ quiz.name }}</h4>
+    <hr>
+    <br>
+    <br>
+
+    {% for user, correct_answers, all_answers in quiz_results_info %}
+        <ul>
+        <li><p> {{ user.first_name }} {{ user.last_name }}  |
+            {{ correct_answers }}/ {{ all_answers }}</p></li>
+        </ul>
+    {% endfor %}
+
+     <p><a class="btn btn-info" href="{% url 'topic' topic.unit.id topic.id %}" role="button">Go back</a></p>
+
+{% endblock %}

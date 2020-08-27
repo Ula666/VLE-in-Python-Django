@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}Units{% endblock %}
+
+{% block content %}
+
+    <br>
+    <br>
+    <h4>Available units:</h4>
+    <hr>
+    {% for unit in units %}
+        <ul>
+            <li><p><a href="{% url 'student_unit' unit.id %}" class="text-info"><h4>{{ unit.id }}. {{ unit.name }}</h4></a></p></li>
+        </ul>
+    {% endfor %}
+
+
+
+{% endblock %}
+

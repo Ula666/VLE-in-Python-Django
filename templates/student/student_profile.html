@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}Profile{% endblock %}
+
+{%  block content %}
+    <br>
+    <h1>Profile</h1>
+    <hr>
+    <br>
+    <p><b>Username:</b> {{ user.username }}</p>
+    <p><b>First name:</b> {{ user.first_name }}</p>
+    <p><b>Last name:</b> {{ user.last_name }}</p>
+    <p><b>Email:</b> {{ user.email }}</p>
+    {% if profile.learning_style %}
+        <p><b>Learning Style:</b> {{ profile.get_learning_style_display  }} </p>
+    {% endif %}
+    <br>
+    <p><a class="btn btn-info" href="{% url 'learning_style' %}" role="button">Learning Style Quiz</a></p>
+{% endblock %}
+

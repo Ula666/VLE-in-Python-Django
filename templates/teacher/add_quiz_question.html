@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+{% load crispy_forms_tags %}
+
+{% block title %}Add Questions to the Quiz{% endblock %}
+
+{% block content %}
+
+    <br>
+    <br>
+    <p>Add new question with four answers. Please select which answer is correct. </p>
+    <hr>
+    <br>
+    <form method="post">
+       {% csrf_token %}
+       {{ form|crispy }}
+        <button type="submit" class=" btn btn-info">Submit </button>
+    </form>
+{% endblock %}
+
+

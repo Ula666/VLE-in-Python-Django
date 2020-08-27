@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+{% load crispy_forms_tags %}
+
+{% block title %}Quiz{% endblock %}
+
+{% block content %}
+    <h1> Quiz </h1>
+    {% if errors  %}
+        <p>Please fill in all required fields</p>
+    {% endif %}
+    <form method="POST">
+        <p>{% csrf_token %}</p>
+        <p>{{ quiz_form|safe }}</p>
+        <p><button type="submit" class="save btn btn-info">Submit</button></p>
+    </form>
+
+{% endblock %}
+
+
+
+
+

@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+{% load crispy_forms_tags %}
+
+
+
+{% block title %}Add Presentation{% endblock %}
+
+{% block content %}
+
+    <br>
+    <br>
+    <h4>Please add name and a presentation url (iFrame) to upload new material. </h4>
+    <hr>
+    <br>
+    <form method="post" enctype="multipart/form-data">
+       {% csrf_token %}
+       {{ form|crispy }}
+        <button type="submit" class="btn btn-info">Upload New Presentation</button>
+    </form>
+
+
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block title %}Quiz details{% endblock %}
+
+{% block content %}
+    <h4>This Is : {{ quiz.name }}</h4>
+    <p>{{ quiz.description }}</p>
+    <hr>
+    <br>
+    {% for question in questions %}
+        <h5><ins><a href="{% url 'edit_quiz_question' question.id %}">{{ question.text }}</a></ins></h5>
+        {% if question.correct == 'answer_1' %}
+            <p><b>{{ question.answer_1 }}</b></p>
+        {% else %}
+            <p>{{ question.answer_1 }}</p>
+        {% endif %}
+
+        {% if question.correct == 'answer_2' %}
+            <p><b>{{ question.answer_2 }}</b></p>
+        {% else %}
+            <p>{{ question.answer_2 }}</p>
+        {% endif %}
+
+        {% if question.correct == 'answer_3' %}
+            <p><b>{{ question.answer_3 }}</b></p>
+        {% else %}
+            <p>{{ question.answer_3 }}</p>
+        {% endif %}
+
+        {% if question.correct == 'answer_4' %}
+            <p><b>{{ question.answer_4 }}</b></p>
+        {% else %}
+            <p>{{ question.answer_4 }}</p>
+        {% endif %}
+
+    {% endfor %}
+
+     <p><a class="btn btn-info" href="{% url 'add_quiz_question' quiz.id %}" role="button">Add quiz question</a></p>
+
+
+    {% if quiz.is_draft %}
+        <p><a class="btn btn-info" href="{% url 'publish_quiz' quiz.id %}" role="button">Publish</a></p>
+    {% else %}
+        <p><a class="btn btn-info" href="{% url 'hide_quiz' quiz.id %}" role="button">Hide</a></p>
+    {% endif %}
+{% endblock %}

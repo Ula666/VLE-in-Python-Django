@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}Register options{% endblock %}
+
+{% block content %}
+    <br>
+    <br>
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="card bg-light mb-3 border-info mb-3 shadow">
+          <div class="card-body" >
+              <h4 class="card-title text-center">I'm a Student</h4>
+                <hr>
+            <h5 class="card-text text-center">Select this option to register student account.</h5>
+              <br>
+              <p align="center">
+              <a class="btn btn-info btn-lg"  id="button2" href="{% url 'register' %}" role="button">Register Student</a>
+              </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-6">
+        <div class="card bg-light mb-3 border-info mb-3 shadow">
+          <div class="card-body">
+            <h4 class="card-title text-center">I'm a Teacher</h4>
+              <hr>
+            <h5 class="card-text text-center">Select this option to register teacher account.</h5>
+              <br>
+              <p align="center">
+              <a class="btn btn-info btn-lg "  id="button2" href="{% url 'register_teacher' %}" role="button">Register Teacher</a>
+              </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+{% endblock %}

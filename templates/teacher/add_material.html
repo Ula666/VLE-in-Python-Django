@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}Add Materials{% endblock %}
+
+{% block content %}
+
+    <br>
+    <br>
+    <h4>Add new material to the: <b>{{ topic.name }} </b> topic. Please choose between four available options: video, audio, text or image.</h4>
+    <hr>
+    <br>
+    <p><a class="btn btn-info" href="{% url 'add_video' topic.id  %}" role="button">Add new video material</a></p>
+    <p><a class="btn btn-info" href="{% url 'add_audio' topic.id  %}" role="button">Add new audio material</a></p>
+    <p><a class="btn btn-info" href="{% url 'add_text' topic.id  %}" role="button">Add new text material</a></p>
+    <p><a class="btn btn-info" href="{% url 'add_image' topic.id  %}" role="button">Add new image material</a></p>
+    <p><a class="btn btn-info" href="{% url 'add_presentation' topic.id  %}" role="button">Add new presentation material</a></p>
+
+{% endblock %}

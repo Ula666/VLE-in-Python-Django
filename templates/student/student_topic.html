@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}Topic{% endblock %}
+
+{% block content %}
+
+    <br>
+    <br>
+    <h3>This Is Topic : {{ topic.name }}</h3>
+    <hr>
+    <br>
+
+    {% if recommended_materials %}
+        <h5>List of  recommended materials for this topic:</h5>
+
+        {% for material in recommended_materials %}
+            <ul>
+            <li><h5><a href="{% url 'student_material' topic.id material.id  %}" class="text-info"> {{ material.name }}</a></h5></li>
+            </ul>
+        {% endfor %}
+    {% endif %}
+    <br>
+    {% if other_materials %}
+        <h5>List of rest available materials for this topic:</h5>
+        <br>
+        {% for material in other_materials %}
+            <ul>
+            <li><h5><a href="{% url 'student_material' topic.id material.id  %}" class="text-info"> {{ material.name }}</a></h5></li>
+            </ul>
+        {% endfor %}
+    {% endif %}
+    <br>
+    {% if quizes_info  %}
+        <h5> Available Quizzes: </h5>
+        {% for quiz, correct_answers, all_answers in quizes_info %}
+            {% if all_answers == 0 %}
+                <p><a href="{% url 'student_topic_quiz' quiz.id  %}" class="text-info"> {{ quiz.name }}</a></p>
+            {% else %}
+                <p>{{ quiz.name }}, {{ correct_answers }}/{{ all_answers }}</p>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+
+{% endblock %}
+

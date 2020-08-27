@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}Unit{% endblock %}
+
+{% block content %}
+
+    <br>
+    <br>
+    <h3>Unit: {{ unit.name }}</h3>
+    <hr>
+    <br>
+    <h4>Available topics for this unit:</h4>
+
+
+    {% for topic in topics %}
+        <ul>
+            <li><h5><a href="{% url 'topic' unit.id topic.id %}" class="text-info"> {{ topic.name }}</a></h5></li>
+        </ul>
+    {% endfor %}
+
+    <p><a class="btn btn-info" href="{% url 'add_topic' unit.id %}" role="button">Add New Topic</a></p>
+
+{% endblock %}
+

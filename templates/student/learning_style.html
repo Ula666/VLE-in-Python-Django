@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}Learning Style Quiz{% endblock %}
+
+{%  block content %}
+    <h1>Learning Style </h1>
+    {% if errors  %}
+        <p>Please fill in all required fields</p>
+    {% endif %}
+    <form method="POST" class="post-form">{% csrf_token %}
+        {{ quiz_form|safe }}
+        <p><button type="submit" class="save btn btn-default">Save</button></p>
+    </form>
+
+{% endblock %}
+

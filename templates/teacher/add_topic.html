@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+{% load crispy_forms_tags %}
+
+{% block title %}Add Topic{% endblock %}
+
+{% block content %}
+
+    <br>
+    <br>
+<form method="post">
+   {% csrf_token %}
+   {{ form|crispy }}
+    <button type="submit" class="btn btn-info">Submit Topic</button>
+</form>
+
+
+
+{% endblock %}
+
+

@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+
+{% block title %}VLE{% endblock %}
+
+{% block content %}
+
+<br>
+    <div class="jumbotron shadow ">
+      <h1 style="text-align:center" class="display-4">Welcome!</h1>
+      <p style="text-align:center" class="lead" >This is Adaptive Virtual Learning Environment.</p>
+      <hr class="my-4">
+      <p style="text-align:center"> If you already have an account please go to Log In page to access the VLE.</p>
+      <p style="text-align:center"> New User. If you don't have an account go to Register page. </p>
+        <div class="container">
+            <br>
+            <div class="text-center">
+                <a class="btn btn-info btn-lg" id="button1"  href="{% url 'login' %}" role="button">Log in</a>
+                <a class="btn btn-info btn-lg"  id="button2" href="{% url 'register_options' %}" role="button">Register</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
